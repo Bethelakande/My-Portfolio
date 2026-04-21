@@ -5,251 +5,922 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bethel Akande | Product Engineer & AI Specialist</title>
+    <meta name="description"
+        content="Product Engineer and AI Specialist. Global AWS DeepRacer Finalist (6th Place). Building intelligent systems that drive measurable real-world impact.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
     <style>
+        :root {
+            --pink: #d63384;
+            --pink-light: #ff006e;
+            --pink-soft: #fff0f6;
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-600: #475569;
+            --slate-400: #94a3b8;
+            --slate-100: #f1f5f9;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #334155;
+            font-family: 'DM Sans', sans-serif;
+            background-color: #fafafa;
+            color: var(--slate-900);
+            -webkit-font-smoothing: antialiased;
         }
 
-        .pink-gradient {
-            background: linear-gradient(135deg, #d63384 0%, #ff006e 100%);
+        h1,
+        h2,
+        h3 {
+            font-family: 'Fraunces', serif;
         }
 
-        .text-pink {
-            color: #d63384;
-        }
-
-        .border-pink {
-            border-color: #d63384;
-        }
-
-        .bg-pink-soft {
-            background-color: #fff5f8;
-        }
-
-        .card {
-            @apply bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
-        }
-
-        .btn-primary {
-            @apply inline-block pink-gradient text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:opacity-90 transition-all;
-        }
-
+        /* ── NAV ── */
         .nav-link {
-            @apply px-4 py-2 rounded-lg text-sm font-semibold text-slate-400 hover:text-white transition-colors;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ── BUTTONS ── */
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--pink) 0%, var(--pink-light) 100%);
+            color: #fff;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 500;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(214, 51, 132, 0.3);
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.88;
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            display: inline-block;
+            background: transparent;
+            color: var(--slate-900);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 500;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            border: 1.5px solid #e2e8f0;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--pink);
+            background: var(--pink-soft);
+        }
+
+        /* ── CARDS ── */
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            border: 1px solid #e9eef5;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.1);
+            transform: translateY(-4px);
+        }
+
+        /* ── STAT PILL ── */
+        .stat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--pink-soft);
+            border: 1px solid rgba(214, 51, 132, 0.2);
+            color: var(--pink);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+        }
+
+        /* ── BADGE ── */
+        .badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+        }
+
+        .badge-pink {
+            background: var(--pink-soft);
+            color: var(--pink);
+        }
+
+        .badge-dark {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+
+        /* ── SECTION LABEL ── */
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--pink);
+            font-weight: 500;
+        }
+
+        /* ── TIMELINE ── */
+        .timeline-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--pink);
+            flex-shrink: 0;
+            margin-top: 6px;
+        }
+
+        /* ── HERO GRID BG ── */
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(214, 51, 132, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(214, 51, 132, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* ── SKILL TAG ── */
+        .skill-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--pink);
+            color: var(--pink);
+        }
+
+        /* ── METRIC BOX ── */
+        .metric-box {
+            background: linear-gradient(135deg, #fff 0%, var(--pink-soft) 100%);
+            border: 1px solid rgba(214, 51, 132, 0.15);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .metric-num {
+            font-family: 'Fraunces', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--pink);
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 0.78rem;
+            color: #64748b;
+            margin-top: 0.4rem;
+            line-height: 1.4;
+        }
+
+        /* ── CASE STUDY ── */
+        .cs-step {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .cs-step-num {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: rgba(214, 51, 132, 0.15);
+            line-height: 1;
+            min-width: 2rem;
+        }
+
+        /* ── QUOTE ── */
+        blockquote.pull-quote {
+            border-left: 3px solid var(--pink);
+            padding-left: 1.25rem;
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.22s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.36s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.5s;
+        }
+
+        /* ── FOCUS / A11Y ── */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--pink);
+            outline-offset: 3px;
+            border-radius: 4px;
         }
     </style>
 </head>
 
 <body class="antialiased">
 
-    <header class="bg-slate-900/95 backdrop-blur-md sticky top-0 z-50 py-4">
-        <nav class="container mx-auto px-6 flex items-center justify-between">
-            <div class="text-white font-bold text-2xl tracking-tighter italic">BETHEL<span class="text-pink">.AI</span>
-            </div>
-            <div class="hidden md:flex space-x-2">
+    <!-- Skip link for keyboard users -->
+    <a href="#main-content"
+        class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-pink-700 focus:font-bold">Skip
+        to main content</a>
+
+    <!-- ═══════════════════════ HEADER ═══════════════════════ -->
+    <header class="bg-slate-900/96 backdrop-blur-md sticky top-0 z-50 py-4 border-b border-white/5" role="banner">
+        <nav class="max-w-7xl mx-auto px-6 flex items-center justify-between" aria-label="Main navigation">
+            <a href="#home" class="text-white font-black text-xl tracking-tighter"
+                style="font-family:'Fraunces',serif;">
+                Bethel<span style="color:var(--pink);">.</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-1">
                 <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Commercial</a>
-                <a href="#bakery" class="nav-link">Data Science</a>
-                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#impact" class="nav-link">Impact</a>
+                <a href="#bakery" class="nav-link">Case Study</a>
+                <a href="#projects" class="nav-link">Live Work</a>
+                <a href="#skills" class="nav-link">Expertise</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
+            <a href="mailto:Bethelakande@gmail.com" class="hidden md:inline-block btn-primary py-2.5 px-5 text-xs">
+                Hire Me
+            </a>
         </nav>
     </header>
 
-    <main>
-        <section id="home" class="relative bg-white pt-24 pb-32 overflow-hidden">
-            <div class="container mx-auto px-6 relative z-10 text-center">
-                <div
-                    class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-pink uppercase bg-pink-soft rounded-full">
-                    6th Place Global - AWS DeepRacer Finalist
-                </div>
-                <h1 class="text-6xl md:text-8xl font-black text-slate-900 leading-none mb-8">
-                    Product Engineer <br> <span class="text-pink">& AI Architect</span>
-                </h1>
-                <p class="max-w-3xl mx-auto text-xl text-slate-500 mb-12 leading-relaxed">
-                    Building the handshake between high-level AI orchestration and real-world commercial performance.
-                    Currently specializing in Agentic Workflows and Predictive Analytics.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#bakery" class="btn-primary">Explore My Dashboard</a>
-                    <a href="https://github.com/Bethelakande" target="_blank"
-                        class="px-8 py-4 bg-slate-100 text-slate-800 font-bold rounded-xl hover:bg-slate-200 transition-all">GitHub
-                        Systems</a>
+    <main id="main-content">
+
+        <!-- ═══════════════════════ HERO ═══════════════════════ -->
+        <section id="home" class="relative hero-grid bg-white pt-28 pb-36 overflow-hidden">
+            <!-- decorative blob -->
+            <div class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.04]"
+                style="background:radial-gradient(circle, var(--pink) 0%, transparent 70%); transform:translate(30%,-30%);">
+            </div>
+
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <div class="max-w-4xl fade-up">
+                    <div class="flex flex-wrap gap-2 mb-7">
+                        <span class="stat-pill">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--pink)" aria-hidden="true">
+                                <polygon
+                                    points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                            </svg>
+                            6th Place Global — AWS DeepRacer
+                        </span>
+                        <span class="stat-pill">🏆 Best Poster — MLSFF 2026</span>
+                        <span class="stat-pill">Dean's List · GPA 3.57</span>
+                    </div>
+
+                    <h1 class="text-6xl md:text-8xl font-black text-slate-900 leading-[0.95] mb-8 fade-up delay-1">
+                        Product Engineer<br>
+                        <em class="not-italic" style="color:var(--pink);">&amp; AI Architect</em>
+                    </h1>
+
+                    <p class="text-xl text-slate-500 mb-10 leading-relaxed max-w-2xl fade-up delay-2"
+                        style="font-weight:300;">
+                        I build the handshake between high-level AI orchestration and real-world commercial performance.
+                        Not just code — <em>measurable outcomes.</em> 30% engagement lifts. 50% inquiry growth.
+                        Healthcare systems at 99.9% uptime.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 fade-up delay-3">
+                        <a href="#bakery" class="btn-primary">View Case Study</a>
+                        <a href="#contact" class="btn-ghost">Work Together</a>
+                        <a href="https://github.com/Bethelakande" target="_blank" rel="noopener noreferrer"
+                            class="btn-ghost">GitHub</a>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+        <section id="about" class="py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                    <div>
+                        <p class="section-label mb-4">About Me</p>
+                        <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">
+                            I solve problems.<br><em style="color:var(--pink);">Then I measure them.</em>
+                        </h2>
+
+                        <div class="space-y-5 text-slate-600 leading-relaxed"
+                            style="font-size:1.05rem; font-weight:300;">
+                            <p>
+                                I'm a Computer Science (AI) student at UWE Bristol with a philosophy built on three
+                                pillars: <strong class="text-slate-800">Precision</strong>, <strong
+                                    class="text-slate-800">Accessibility</strong>, and <strong
+                                    class="text-slate-800">Scale</strong>. My work sits at the intersection of machine
+                                learning research and commercial product delivery.
+                            </p>
+                            <p>
+                                As a Web Development Intern at UWE's School of Applied Sciences, I didn't just build
+                                websites — I engineered a <strong class="text-slate-800">30% increase in digital
+                                    engagement</strong> by re-architecting platforms to WCAG 2.2 compliance. For a
+                                Bristol bakery, I turned messy transaction data into a predictive analytics suite that
+                                now guides daily inventory decisions with a MAPE under 30%.
+                            </p>
+                            <blockquote class="pull-quote my-6">
+                                "I'm not looking for the most technically impressive solution. I'm looking for the right
+                                one for the client."
+                            </blockquote>
+                            <p>
+                                Outside of engineering, I lead: representing 1,000+ peers as a UWE Student
+                                Representative, managing operations for 20+ members at RCCG, and presenting research at
+                                national conferences. I believe great engineers are great communicators first.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="metric-box col-span-2">
+                            <div class="metric-num">3</div>
+                            <div class="metric-label">Live commercial platforms<br>shipped & maintained</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-num">30%</div>
+                            <div class="metric-label">Increase in user engagement (UWE internship)</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-num">50%</div>
+                            <div class="metric-label">Growth in business inquiries (EISL)</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-num">6th</div>
+                            <div class="metric-label">Global rank, AWS DeepRacer</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-num">99.9%</div>
+                            <div class="metric-label">Uptime, PHB Health platform</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════ IMPACT TIMELINE ═══════════════════════ -->
+        <section id="impact" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-14">
+                    <p class="section-label mb-3">Experience</p>
+                    <h2 class="text-4xl font-black text-slate-900">Where I've Created Impact</h2>
+                </div>
+
+                <div class="space-y-10 max-w-4xl">
+
+                    <!-- UWE Internship -->
+                    <div class="card p-8">
+                        <div class="flex flex-col sm:flex-row sm:items-start gap-6">
+                            <div class="flex-1">
+                                <div class="flex flex-wrap items-center gap-3 mb-3">
+                                    <span class="badge badge-pink">Internship</span>
+                                    <span class="badge badge-dark">Jun–Sep 2025</span>
+                                </div>
+                                <h3 class="text-2xl font-black mb-1">Web Development Intern</h3>
+                                <p class="text-slate-500 mb-4"
+                                    style="font-family:'DM Mono',monospace; font-size:0.78rem;">University of the West
+                                    of England — School of Applied Sciences</p>
+                                <ul class="space-y-2 text-slate-600" style="font-size:0.95rem;">
+                                    <li class="cs-step">
+                                        <div class="timeline-dot"></div>
+                                        <span>Achieved a <strong>30% increase in user engagement</strong> by
+                                            re-engineering platforms for WCAG 2.2 compliance — turning accessibility
+                                            from a checkbox into a growth driver.</span>
+                                    </li>
+                                    <li class="cs-step">
+                                        <div class="timeline-dot"></div>
+                                        <span>Acted as the sole technical point of contact for three university groups,
+                                            managing service requests and platform updates within Agile sprint
+                                            cycles.</span>
+                                    </li>
+                                    <li class="cs-step">
+                                        <div class="timeline-dot"></div>
+                                        <span>Maintained technical logs and user guides to support knowledge sharing and
+                                            long-term platform auditability.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-col gap-2 min-w-[130px]">
+                                <div class="metric-box text-center px-4 py-3">
+                                    <div class="metric-num" style="font-size:2rem;">+30%</div>
+                                    <div class="metric-label">Engagement</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DeepRacer -->
+                    <div class="card p-8">
+                        <div class="flex flex-col sm:flex-row sm:items-start gap-6">
+                            <div class="flex-1">
+                                <div class="flex flex-wrap items-center gap-3 mb-3">
+                                    <span class="badge badge-pink">Competition</span>
+                                    <span class="badge badge-dark">Nov 2025</span>
+                                </div>
+                                <h3 class="text-2xl font-black mb-1">AWS DeepRacer — Global Finalist</h3>
+                                <p class="text-slate-500 mb-4"
+                                    style="font-family:'DM Mono',monospace; font-size:0.78rem;">Autonomous Reinforcement
+                                    Learning Competition</p>
+                                <ul class="space-y-2 text-slate-600" style="font-size:0.95rem;">
+                                    <li class="cs-step">
+                                        <div class="timeline-dot"></div>
+                                        <span>Ranked <strong>6th globally</strong> — one of the fastest lap times in the
+                                            competition — competing against industry professionals.</span>
+                                    </li>
+                                    <li class="cs-step">
+                                        <div class="timeline-dot"></div>
+                                        <span>Independently mastered reinforcement learning and AWS cloud infrastructure
+                                            to design, train, and iterate on autonomous racing models under competition
+                                            pressure.</span>
+                                    </li>
+                                    <li class="cs-step">
+                                        <div class="timeline-dot"></div>
+                                        <span>Demonstrated ability to self-direct learning in high-stakes environments
+                                            with no prior guided instruction.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-col gap-2 min-w-[130px]">
+                                <div class="metric-box text-center px-4 py-3">
+                                    <div class="metric-num" style="font-size:2rem;">6th</div>
+                                    <div class="metric-label">Global Rank</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MLSFF -->
+                    <div class="card p-8">
+                        <div class="flex flex-wrap items-center gap-3 mb-3">
+                            <span class="badge badge-pink">Research Award</span>
+                            <span class="badge badge-dark">Mar 2026</span>
+                        </div>
+                        <h3 class="text-2xl font-black mb-1">Best Poster — MLSFF Conference 2026</h3>
+                        <p class="text-slate-500 mb-4" style="font-family:'DM Mono',monospace; font-size:0.78rem;">
+                            Minoritised Life Scientists Future Forum</p>
+                        <p class="text-slate-600" style="font-size:0.95rem;">"Beyond the Code: Bridging Academic Theory
+                            and Global Research Through Digital Transformation" — awarded Best Poster Presentation in
+                            the Undergraduate category, demonstrating ability to translate technical work for
+                            interdisciplinary academic audiences.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════ CASE STUDY ═══════════════════════ -->
         <section id="bakery" class="py-24 bg-slate-50">
-            <div class="container mx-auto px-6">
-                <div class="max-w-3xl mb-16">
-                    <h2 class="text-pink font-bold uppercase tracking-widest text-sm mb-4">Case Study</h2>
-                    <h3 class="text-4xl md:text-5xl font-black text-slate-900 mb-6">Bakery Sales Prediction Dashboard
-                    </h3>
-                    <p class="text-lg text-slate-600">
-                        I developed a custom predictive analytics tool for a local Bristol bakery. This project involved
-                        cleaning messy transaction data, performing time-series forecasting, and building a
-                        high-fidelity dashboard for inventory management.
+            <div class="max-w-7xl mx-auto px-6">
+
+                <div class="max-w-2xl mb-16">
+                    <p class="section-label mb-4">Deep Dive · Case Study</p>
+                    <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
+                        AI Sales Forecasting Suite<br><em style="color:var(--pink);">(MAPE &lt;30%)</em>
+                    </h2>
+                    <p class="text-lg text-slate-600" style="font-weight:300;">
+                        A real-world predictive analytics tool built for a local Bristol bakery — turning 10+ years of
+                        messy transaction data into actionable inventory intelligence.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    <div class="card md:col-span-2 lg:col-span-2">
-                        <img src="images/primary prediction interface.png" alt="Sales Dashboard Overview"
-                            class="w-full h-auto object-cover border-b border-slate-100">
-                        <div class="p-6">
-                            <h4 class="font-bold text-xl mb-2">Primary Prediction Interface</h4>
-                            <p class="text-slate-500">Visualizing 28-day forecasts against actual transaction volume
-                                with seasonal decomposition.</p>
-                        </div>
+                <!-- Challenge → Solution → Result -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                    <div class="card p-6">
+                        <div class="cs-step-num">01</div>
+                        <h4 class="text-lg font-black mt-2 mb-3">The Challenge</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">A Bristol bakery was over-ordering perishable
+                            goods weekly, generating waste and eroding margins. Their transaction records spanned 10+
+                            years but were inconsistent, incomplete, and entirely manual.</p>
                     </div>
+                    <div class="card p-6 border-t-4" style="border-top-color:var(--pink);">
+                        <div class="cs-step-num">02</div>
+                        <h4 class="text-lg font-black mt-2 mb-3">The Solution</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">I architected a PyQt5 desktop app with a
+                            custom data preprocessing engine. I chose <strong>Prophet over SARIMA</strong> for its
+                            ability to handle holiday effects and missing data without manual tuning — critical for a
+                            bakery with irregular trading hours.</p>
+                    </div>
+                    <div class="card p-6">
+                        <div class="cs-step-num">03</div>
+                        <h4 class="text-lg font-black mt-2 mb-3">The Result</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">A comparative ML engine (Prophet + SARIMA +
+                            Random Forest) achieving <strong>MAPE &lt;30%</strong> for high-loss perishable goods.
+                            Processing latency held at &lt;0.15s for datasets over 10 years. 100% data integrity
+                            maintained across automated imputation pipelines.</p>
+                    </div>
+                </div>
 
-                    <div class="card">
-                        <img src="images/model evaluation panel.png" alt="Model Evaluation" class="w-full h-auto">
-                        <div class="p-6">
-                            <h4 class="font-bold text-xl mb-2">Model Evaluation Panel</h4>
-                            <p class="text-slate-500 text-sm italic font-mono">MAE: 14.58 | RMSE: 20.94</p>
-                            <p class="mt-4 text-slate-600">Built-in diagnostics to inform the user on the reliability of
-                                current inventory suggestions.</p>
+                <!-- Technical decisions callout -->
+                <div class="card p-8 mb-12 border-l-4" style="border-left-color:var(--pink);">
+                    <p class="section-label mb-3">Why These Technical Choices?</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-600" style="font-size:0.95rem;">
+                        <div>
+                            <strong class="text-slate-800 block mb-1">Prophet over SARIMA</strong>
+                            SARIMA requires stationary data and manual parameter tuning (p, d, q). Prophet handles
+                            trends, seasonality, and holiday effects out of the box — essential when the bakery had
+                            inconsistent opening hours and seasonal demand spikes that SARIMA would misread as noise.
+                        </div>
+                        <div>
+                            <strong class="text-slate-800 block mb-1">PyQt5 over Web Dashboard</strong>
+                            A web dashboard would require the bakery owner to maintain a server or subscription. A
+                            standalone PyQt5 app runs locally, works offline, and protects customer transaction data —
+                            aligning with GDPR localization requirements without adding IT overhead.
+                        </div>
+                        <div>
+                            <strong class="text-slate-800 block mb-1">Hybrid Water-Scrum-Fall</strong>
+                            Pure Agile struggled with our fixed academic deadline. Pure Waterfall was too rigid for
+                            changing requirements. A hybrid model gave us sprint flexibility within a fixed delivery
+                            structure — we completed 15 sprints while meeting every deadline.
+                        </div>
+                        <div>
+                            <strong class="text-slate-800 block mb-1">Automated Imputation over Manual Cleaning</strong>
+                            Manual CSV cleaning would have taken weeks and introduced human error. I built automated
+                            pipelines in Pandas with statistical imputation, reducing preprocessing time to minutes and
+                            ensuring reproducibility across every model run.
                         </div>
                     </div>
+                </div>
 
-                    <div class="card">
-                        <img src="images/trend analysis.png" alt="Sales Trends" class="w-full h-auto">
+                <!-- Dashboard screenshots -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card md:col-span-2">
+                        <img src="images/primary prediction interface.png"
+                            alt="The primary prediction interface showing 28-day forecasts against actual transaction volume with seasonal decomposition"
+                            class="w-full h-64 object-cover object-top border-b border-slate-100">
                         <div class="p-6">
-                            <h4 class="font-bold text-xl mb-2">Trend Analysis</h4>
-                            <p class="text-slate-500">Identifying daily peaks and troughs to optimize staff scheduling
-                                and waste reduction.</p>
+                            <h4 class="font-black text-lg mb-2">Primary Prediction Interface</h4>
+                            <p class="text-slate-500 text-sm">28-day forecasts visualised against actual transaction
+                                volume with seasonal decomposition. The dual-line view lets the owner spot divergence
+                                early and adjust orders before waste occurs.</p>
                         </div>
                     </div>
+                    <div class="card">
+                        <img src="images/model evaluation panel.png"
+                            alt="Model evaluation panel showing MAE of 14.58 and RMSE of 20.94"
+                            class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="font-black text-lg mb-2">Model Evaluation Panel</h4>
+                            <code class="block text-xs bg-slate-50 rounded px-3 py-2 mb-3"
+                                style="font-family:'DM Mono',monospace; color:var(--pink);">MAE: 14.58 · RMSE: 20.94</code>
+                            <p class="text-slate-600 text-sm">Built-in diagnostics so the owner always knows how much to
+                                trust today's suggestion — not just what it says.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/trend analysis.png" alt="Trend analysis chart showing daily peaks and troughs"
+                            class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="font-black text-lg mb-2">Trend Analysis</h4>
+                            <p class="text-slate-600 text-sm">Daily peaks and troughs identified to optimise staff
+                                scheduling and reduce waste during low-demand windows.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/inventory scaling.png"
+                            alt="Inventory scaling interface for adjusting supply orders"
+                            class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="font-black text-lg mb-2">Inventory Scaling</h4>
+                            <p class="text-slate-600 text-sm">A dynamic view for the owner to adjust supply orders based
+                                on AI-predicted demand — no data science knowledge required.</p>
+                        </div>
+                    </div>
+                </div>
 
-                    <div class="card">
-                        <img src="images/inventory scaling.png" alt="Data Cleaning" class="w-full h-auto">
-                        <div class="p-6">
-                            <h4 class="font-bold text-xl mb-2">Inventory Scaling</h4>
-                            <p class="text-slate-500">A dynamic view for the owner to adjust supply orders based on
-                                AI-predicted demand.</p>
-                        </div>
-                    </div>
+                <div class="mt-8 text-center">
+                    <a href="https://github.com/Bethelakande/SDGP_BristolPinkCafe" target="_blank"
+                        rel="noopener noreferrer" class="btn-ghost">
+                        View on GitHub →
+                    </a>
                 </div>
             </div>
         </section>
 
+        <!-- ═══════════════════════ LIVE WORK ═══════════════════════ -->
         <section id="projects" class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-black text-slate-900 mb-16 text-center italic uppercase">Live Deployments</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-14">
+                    <p class="section-label mb-3">Commercial Work</p>
+                    <h2 class="text-4xl font-black text-slate-900">Live Deployments</h2>
+                    <p class="text-slate-500 mt-3 max-w-xl" style="font-weight:300;">Every project below is live,
+                        maintained, and was built to solve a real client problem — not just look good in a portfolio.
+                    </p>
+                </div>
 
-                    <div class="card p-8 border-t-8 border-pink">
-                        <h3 class="text-2xl font-black mb-4 uppercase">AAG Energy</h3>
-                        <p class="text-slate-600 mb-8 leading-relaxed">
-                            Sustainable energy platform. I engineered the full infrastructure and database management
-                            system to track renewable energy assets.
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+
+                    <div class="card p-8 flex flex-col">
+                        <div class="flex items-start justify-between mb-4">
+                            <span class="badge badge-pink">Energy · Fullstack</span>
+                        </div>
+                        <h3 class="text-2xl font-black mb-2">AAG Energy</h3>
+                        <p class="text-slate-500 text-sm mb-2" style="font-family:'DM Mono',monospace;">aagenergy.org
                         </p>
-                        <a href="https://aagenergy.org/" target="_blank"
-                            class="inline-flex items-center text-pink font-bold hover:gap-2 transition-all">
-                            VISIT PLATFORM <span>&rarr;</span>
-                        </a>
+                        <p class="text-slate-600 text-sm mb-6 flex-1 leading-relaxed">Spearheaded end-to-end development
+                            of a corporate platform for a sustainable energy company. Translated non-technical
+                            stakeholder requirements into a responsive production interface, with a roadmap to migrate
+                            architecture to React for improved scalability.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag">HTML/CSS/JS</span>
+                            <span class="skill-tag">Stakeholder Management</span>
+                            <span class="skill-tag">UI/UX</span>
+                        </div>
+                        <a href="https://aagenergy.org/" target="_blank" rel="noopener noreferrer"
+                            class="btn-ghost text-center text-xs py-3 mt-auto"
+                            style="font-family:'DM Mono',monospace; letter-spacing:0.1em;">Visit Platform →</a>
                     </div>
 
-                    <div class="card p-8 border-t-8 border-slate-900">
-                        <h3 class="text-2xl font-black mb-4 uppercase">EISL Logistics</h3>
-                        <p class="text-slate-600 mb-8 leading-relaxed">
-                            A specialized logistics and services portal. I focused on the UX design and administrative
-                            data handshake for fleet management.
-                        </p>
-                        <a href="https://ecclesiastesservices.com/" target="_blank"
-                            class="inline-flex items-center text-slate-900 font-bold hover:gap-2 transition-all">
-                            VISIT PLATFORM <span>&rarr;</span>
-                        </a>
+                    <div class="card p-8 flex flex-col" style="border-top: 4px solid var(--slate-900);">
+                        <div class="flex items-start justify-between mb-4">
+                            <span class="badge badge-dark">Logistics · UX</span>
+                        </div>
+                        <h3 class="text-2xl font-black mb-2">EISL Logistics</h3>
+                        <p class="text-slate-500 text-sm mb-2" style="font-family:'DM Mono',monospace;">
+                            ecclesiastesservices.com</p>
+                        <p class="text-slate-600 text-sm mb-6 flex-1 leading-relaxed">Engineered a global-facing
+                            business website focused on lead generation and search visibility. The result: a <strong>50%
+                                increase in business inquiries</strong> and expanded market reach to a global audience —
+                            a direct commercial outcome from design decisions.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag">UX Design</span>
+                            <span class="skill-tag">Lead Gen</span>
+                            <span class="skill-tag">SEO</span>
+                        </div>
+                        <a href="https://ecclesiastesservices.com/" target="_blank" rel="noopener noreferrer"
+                            class="btn-ghost text-center text-xs py-3 mt-auto"
+                            style="font-family:'DM Mono',monospace; letter-spacing:0.1em;">Visit Platform →</a>
                     </div>
 
-                    <div class="card p-8 border-t-8 border-sky-500">
-                        <h3 class="text-2xl font-black mb-4 uppercase">PHB Health</h3>
-                        <p class="text-slate-600 mb-8 leading-relaxed">
-                            Scalable healthcare platform. Features secure doctor-patient communication and a 90%
-                            accuracy cardiac AI classifier.
+                    <div class="card p-8 flex flex-col" style="border-top: 4px solid #0ea5e9;">
+                        <div class="flex items-start justify-between mb-4">
+                            <span class="badge" style="background:#f0f9ff; color:#0369a1;">Healthcare · AI</span>
+                        </div>
+                        <h3 class="text-2xl font-black mb-2">PHB Health</h3>
+                        <p class="text-slate-500 text-sm mb-2" style="font-family:'DM Mono',monospace;">phbhealth.com
                         </p>
-                        <a href="https://www.phbhealth.com/" target="_blank"
-                            class="inline-flex items-center text-sky-500 font-bold hover:gap-2 transition-all">
-                            VISIT PLATFORM <span>&rarr;</span>
-                        </a>
+                        <p class="text-slate-600 text-sm mb-6 flex-1 leading-relaxed">Scalable healthcare platform with
+                            secure doctor-patient communication portals, <strong>99.9% uptime</strong> through
+                            comprehensive testing, and a cardiac AI classifier achieving 90% accuracy — built where
+                            reliability is non-negotiable.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag">Full-Stack</span>
+                            <span class="skill-tag">AI Classifier</span>
+                            <span class="skill-tag">Healthcare</span>
+                        </div>
+                        <a href="https://www.phbhealth.com/" target="_blank" rel="noopener noreferrer"
+                            class="btn-ghost text-center text-xs py-3 mt-auto"
+                            style="font-family:'DM Mono',monospace; letter-spacing:0.1em;">Visit Platform →</a>
                     </div>
+                </div>
 
+                <!-- AI Projects -->
+                <div class="mb-8">
+                    <p class="section-label mb-6">AI / Research Projects</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="card p-7">
+                        <span class="badge badge-pink mb-4 block w-fit">RAG · FastAPI · AWS</span>
+                        <h3 class="text-xl font-black mb-2">AI Learning Assistant <em style="color:var(--pink);">(Team
+                                Lead)</em></h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">AI-powered learning platform built on
+                            FastAPI + React.js with RAG pipelines and vector databases. Deployed on AWS EC2/S3 for
+                            scalable, low-latency knowledge retrieval.</p>
+                        <a href="https://github.com/Bethelakande/AI-Learning-Assistant-Pro" target="_blank"
+                            rel="noopener noreferrer" class="section-label hover:opacity-70 transition-opacity">View on
+                            GitHub →</a>
+                    </div>
+                    <div class="card p-7">
+                        <span class="badge badge-pink mb-4 block w-fit">LLM Fine-tuning · LangChain</span>
+                        <h3 class="text-xl font-black mb-2">Elara Medical AI <em style="color:var(--pink);">(Team
+                                Lead)</em></h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Fine-tuned Mistral LLM for clinical
+                            decision support. Analysed 10,000+ PubMed articles to generate clinical insight dashboards
+                            via LangChain Q&A pipelines.</p>
+                        <a href="https://github.com/iamgolden55/Elara" target="_blank" rel="noopener noreferrer"
+                            class="section-label hover:opacity-70 transition-opacity">View on GitHub →</a>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- ═══════════════════════ EXPERTISE ═══════════════════════ -->
         <section id="skills" class="py-24 bg-slate-900 text-white">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div>
-                        <h3 class="text-pink font-black text-3xl mb-6 italic uppercase">Core Intelligence</h3>
-                        <ul class="space-y-4 text-slate-400 font-medium">
-                            <li class="flex items-center gap-2"><span class="text-pink">✔</span> Reinforcement Learning
-                            </li>
-                            <li class="flex items-center gap-2"><span class="text-pink">✔</span> Agentic AI (LangGraph)
-                            </li>
-                            <li class="flex items-center gap-2"><span class="text-pink">✔</span> PyTorch / TensorFlow
-                            </li>
-                            <li class="flex items-center gap-2"><span class="text-pink">✔</span> RAG Pipelines</li>
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-14">
+                    <p class="section-label mb-3" style="color:var(--pink);">Expertise</p>
+                    <h2 class="text-4xl font-black text-white">What I Bring</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                        <div class="text-pink-400 mb-4" style="color:var(--pink);">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" aria-hidden="true">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-black text-xl mb-3 italic">Core Intelligence</h3>
+                        <ul class="space-y-2 text-slate-400 text-sm">
+                            <li>Reinforcement Learning (AWS)</li>
+                            <li>Agentic AI (LangGraph)</li>
+                            <li>Time-Series Forecasting</li>
+                            <li>PyTorch / TensorFlow</li>
+                            <li>RAG Pipelines</li>
+                            <li>LLM Fine-tuning (Mistral)</li>
                         </ul>
                     </div>
-                    <div>
-                        <h3 class="text-pink font-black text-3xl mb-6 italic uppercase">Full-Stack Hub</h3>
-                        <ul class="space-y-4 text-slate-400 font-medium">
-                            <li class="flex items-center gap-2"><span class="text-pink">✔</span> Python (Django/FastAPI)
-                            </li>
-                            <li class="flex items-center gap-2"><span class="text-pink">✔</span> React.js / Node.js</li>
-                            <li class="flex items-center gap-2"><span class="text-pink">✔</span> SQL / Vector Databases
-                            </li>
-                            <li class="flex items-center gap-2"><span class="text-pink">✔</span> Docker & Cloud Deploy
-                            </li>
+
+                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                        <div class="mb-4" style="color:var(--pink);">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" aria-hidden="true">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                        </div>
+                        <h3 class="font-black text-xl mb-3 italic">Full-Stack</h3>
+                        <ul class="space-y-2 text-slate-400 text-sm">
+                            <li>Python (FastAPI, Django)</li>
+                            <li>React.js / Node.js</li>
+                            <li>TypeScript / JavaScript</li>
+                            <li>SQL & Vector Databases</li>
+                            <li>Docker & AWS (EC2, S3)</li>
+                            <li>REST APIs</li>
                         </ul>
                     </div>
-                    <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700">
-                        <h3 class="text-white font-black text-2xl mb-4 italic uppercase">Leadership</h3>
-                        <p class="text-slate-400 leading-relaxed mb-6">
-                            Managing operations for 20+ members (RCCG) and representing 1,000+ peers as a UWE Student
-                            Representative.
-                        </p>
-                        <div class="text-pink font-bold">STAKEHOLDER READY</div>
+
+                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                        <div class="mb-4" style="color:var(--pink);">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" aria-hidden="true">
+                                <line x1="18" y1="20" x2="18" y2="10" />
+                                <line x1="12" y1="20" x2="12" y2="4" />
+                                <line x1="6" y1="20" x2="6" y2="14" />
+                            </svg>
+                        </div>
+                        <h3 class="font-black text-xl mb-3 italic">Data Engineering</h3>
+                        <ul class="space-y-2 text-slate-400 text-sm">
+                            <li>Pandas / NumPy / Scikit-Learn</li>
+                            <li>Automated Imputation Pipelines</li>
+                            <li>GDPR-Compliant Localisation</li>
+                            <li>Prophet / SARIMA / RF</li>
+                            <li>Power BI</li>
+                            <li>Jupyter / Kaggle</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-800 rounded-2xl p-6 border border-pink-900"
+                        style="border-color:rgba(214,51,132,0.3); background:linear-gradient(135deg, #1e293b 0%, rgba(214,51,132,0.08) 100%);">
+                        <div class="mb-4" style="color:var(--pink);">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" aria-hidden="true">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <h3 class="font-black text-xl mb-3 italic">Leadership</h3>
+                        <ul class="space-y-2 text-slate-400 text-sm">
+                            <li>Agile / Scrum Lead</li>
+                            <li>15+ Sprint Management</li>
+                            <li>WCAG 2.2 Compliance</li>
+                            <li>Student Representative (1,000+ peers)</li>
+                            <li>Stakeholder Communication</li>
+                            <li>Technical Translation</li>
+                        </ul>
+                        <div class="mt-4 pt-4 border-t border-slate-700">
+                            <span class="stat-pill text-xs">Stakeholder Ready</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="py-24 bg-white text-center">
-            <div class="container mx-auto px-6">
-                <h2 class="text-5xl font-black text-slate-900 mb-8 italic uppercase">Get In Touch</h2>
-                <p class="text-xl text-slate-500 mb-12 max-w-2xl mx-auto">
-                    Currently seeking high-impact placement opportunities for 2026/27. Let's build the future.
+        <!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+        <section id="contact" class="py-28 bg-white text-center relative overflow-hidden">
+            <div class="absolute inset-0 hero-grid opacity-50"></div>
+            <div class="max-w-3xl mx-auto px-6 relative z-10">
+                <p class="section-label mb-5">Let's Talk</p>
+                <h2 class="text-5xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
+                    Ready to build<br><em style="color:var(--pink);">something impactful?</em>
+                </h2>
+                <p class="text-xl text-slate-500 mb-12" style="font-weight:300;">
+                    Currently seeking high-impact placement opportunities for 2026/27. I bring technical depth,
+                    commercial awareness, and a genuine drive to make things better than I found them.
                 </p>
-                <div class="flex justify-center space-x-12">
-                    <a href="mailto:Bethelakande@gmail.com"
-                        class="text-2xl font-black hover:text-pink transition-colors underline decoration-pink">EMAIL</a>
-                    <a href="https://www.linkedin.com/in/bethel-akande-844988323/"
-                        class="text-2xl font-black hover:text-pink transition-colors">LINKEDIN</a>
-                    <a href="https://github.com/Bethelakande"
-                        class="text-2xl font-black hover:text-pink transition-colors">GITHUB</a>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                    <a href="mailto:Bethelakande@gmail.com" class="btn-primary">bethelakande@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/bethel-akande-844988323/" target="_blank"
+                        rel="noopener noreferrer" class="btn-ghost">LinkedIn</a>
+                    <a href="https://github.com/Bethelakande" target="_blank" rel="noopener noreferrer"
+                        class="btn-ghost">GitHub</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="py-12 bg-slate-50 border-t border-slate-200">
-        <div class="container mx-auto px-6 text-center text-slate-400 font-bold text-sm tracking-widest">
-            &copy; <span id="year"></span> BETHEL AKANDE | DESIGNED FOR INDUSTRIAL ACCELERATION
+    <footer class="py-10 bg-slate-50 border-t border-slate-200" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-slate-400 text-xs"
+            style="font-family:'DM Mono',monospace; letter-spacing:0.1em;">
+            <span>&copy; <span id="year"></span> BETHEL AKANDE</span>
+            <span>PRODUCT ENGINEER · AI ARCHITECT · UWE BRISTOL</span>
+            <a href="#home" class="hover:text-slate-600 transition-colors">Back to top ↑</a>
         </div>
     </footer>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
 
+        // Smooth reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section > div').forEach(el => {
+            if (!el.closest('#home')) observer.observe(el);
+        });
+    </script>
 </body>
 
 </html>
